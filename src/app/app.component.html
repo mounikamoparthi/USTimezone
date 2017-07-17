@@ -3,10 +3,10 @@
   <h1>
     Welcome to {{title}}!
   </h1>
-  <button (click)='pst()'>PST</button>
-  <button (click)='mst()'> MST </button>
-  <button (click)='cst()'> CST </button>
-  <button (click)='est()'> EST </button>
-  <button (click)='clear()'> Clear </button>
-{{ today }}
+  <button (click)='displayTime("pst")'>PST</button>
+  <button (click)='displayTime("mst")'> MST </button>
+  <button (click)='displayTime("cst")'> CST </button>
+  <button (click)='displayTime("est")' > EST </button>
+  <button (click)='displayTime("clear")' > Clear </button><br> <br>
+  {{ today | date:'medium'}}
 

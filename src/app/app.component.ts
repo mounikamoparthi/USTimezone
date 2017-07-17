@@ -7,21 +7,35 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Us Time Zone';
-  today =  Date();
-  pst() {
-    console.log('Date:', this.today);
+  today: Date = new Date();
+  displayTime( name: string) {
+      const d: Date = new Date();
+
+  if (name === 'pst') {
+    const utcDate: Date = new Date(d.toUTCString()); // in javascript
+    console.log(utcDate);
+    this.today = utcDate;
   }
-  mst() {
-    console.log('Date:', this.today);
+  if (name === 'mst') {
+    const utcDate: Date = new Date(d.toUTCString());
+    const mst = utcDate.setHours(utcDate.getHours() + 1);
+    const mstDate: Date = new Date(mst);    // converts number to date
+    this.today = mstDate;
   }
-  cst() {
-    console.log('Date:', this.today);
+   if (name === 'est') {
+    const utcDate: Date = new Date(d.toUTCString());
+    const est = utcDate.setHours(utcDate.getHours() + 3);
+    const estDate: Date = new Date(est);    // converts number to date
+    this.today = estDate;
   }
-  est() {
-    console.log('Date:', this.today);
+   if (name === 'cst') {
+    const utcDate: Date = new Date(d.toUTCString());
+    const cst = utcDate.setHours(utcDate.getHours() + 2);
+    const cstDate: Date = new Date(cst);    // converts number to date
+    this.today = cstDate;
   }
-  clear() {
-    this.today = '';
-    console.log(this.today);
+  if (name === 'clear') {
+    this.today = null;
   }
+}
 }
